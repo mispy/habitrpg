@@ -10,73 +10,35 @@ function($rootScope, User, $timeout, $state) {
 
   var chapters = {
     intro: [
-      [ //0
+      [
         {
           state: 'tasks',
           element: ".task-column.todos",
-          content: window.env.t('tourWelcome'),
-          placement: "top"
-        }
-      ], [ //1
+          content: window.env.t('tourToDosBrief'),
+          placement: "top",
+          proceed: window.env.t('tourToDosProceed')
+        },
         {
-          state: 'tasks',
-          element: '.sticky-wrapper',
-          content: window.env.t('tourExp'),
-          placement: 'bottom'
-        }, {
           state: 'tasks',
           element: ".task-column.dailys",
-          content: window.env.t('tourDailies'),
-          placement: "top"
-        }
-      ], [ //2
+          content: window.env.t('tourDailiesBrief'),
+          placement: "top",
+          proceed: window.env.t('tourDailiesProceed')
+        },
         {
-          orphan: true,
-          content: window.env.t('tourCron'),
-          placement: 'bottom'
-        }, {
-          state: 'tasks',
-          element: '.meter.health',
-          content: window.env.t('tourHP'),
-          placement: 'bottom'
-        }, {
           state: 'tasks',
           element: ".task-column.habits",
-          content: window.env.t('tourHabits'),
-          placement: "right"
-        }
-      ], [ //3
+          content: window.env.t('tourHabitsBrief'),
+          placement: "right",
+          proceed: window.env.t('tourHabitsProceed')
+        },
         {
-          state: 'tasks',
-          element: ".hero-stats",
-          content: window.env.t('tourStats')
-        }, {
           state: 'tasks',
           element: ".task-column.rewards",
-          content: window.env.t('tourGP'),
-          placement: 'left'
-        }
-      ], [ //4
-        {
-          state: 'tasks',
-          element: '.main-herobox',
-          content: window.env.t('tourAvatar'),
-          placement: 'bottom'
-        }
-      ], [ //5
-        {
-          state: 'options.profile.avatar',
-          orphan: true,
-          content: window.env.t('tourScrollDown')
-        }, {
-          element: "ul.toolbar-nav",
-          backdrop:false,
-          content: window.env.t('tourMuchMore'),
-          placement: "bottom",
-          final: true,
-          //onHidden: function(){
-          //  $rootScope.$watch('user.flags.customizationsNotification', _.partial(goto, 'intro', 4));
-          //}
+          content: window.env.t('tourRewardsBrief'),
+          placement: "left",
+          proceed: window.env.t('tourRewardsProceed'),
+          final: true
         }
       ]
     ],
@@ -185,31 +147,23 @@ function($rootScope, User, $timeout, $state) {
         var showFinish = step.final || k == 'classes';
         var showCounter = k=='intro' && !step.final;
 
-        // Experiment wud1Ba5qT1m9qR3PP0-Mmg , remove this when experiment complete
-        // 0=No Finish; Yes Counter 1=No Finish; No Counter 2=Yes Finish; Yes Counter 3=Yes Finish; No Counter
-        showFinish = showFinish || $rootScope.variant==2 || $rootScope.variant==3;
-        showCounter = showCounter && ($rootScope.variant==0 || $rootScope.variant==2);
-
-        // FIXME temporarily set finish & counter on until we can get experiment working
-        showFinish=true;showCounter=true;
-
         return '<div class="popover" role="tooltip">' +
           '<div class="arrow"></div>' +
           '<h3 class="popover-title"></h3>' +
           '<div class="popover-content"></div>' +
           '<div class="popover-navigation"> ' +
             //'<button class="btn btn-sm btn-default" data-role="end" style="float:none;">' + (step.final ? 'Finish Tour' : 'Hide') + '</button>' +
-            (showFinish ? '<button class="btn btn-sm btn-default" data-role="end" style="float:none;">Finish Tour</button>' : '') +
             (showCounter ? '<span style="float:right;">'+ (i+1 +' of '+ _.flatten(chapters[k]).length) +'</span>' : '')+ // counter
             '<div class="btn-group">' +
-              '<button class="btn btn-sm btn-default" data-role="prev">&laquo; Prev</button>' +
-              '<button class="btn btn-sm btn-default" data-role="next">Next &raquo;</button>' +
+              '<button class="btn btn-sm btn-default" data-role="prev">&laquo; Previous</button>' +
+              (showFinish ? ('<button class="btn btn-sm btn-default" data-role="end" style="float:none;">' + (step.proceed ? step.proceed : "Finish Tour") + '</button>') :
+                ('<button class="btn btn-sm btn-default" data-role="next">' + (step.proceed ? step.proceed : "Next") + ' &raquo;</button>')) +
               '<button class="btn btn-sm btn-default" data-role="pause-resume" data-pause-text="Pause" data-resume-text="Resume">Pause</button>' +
             '</div>' +
           '</div>' +
           '</div>';
       },
-      storage: false,
+      storage: false
       //onEnd: function(){
       //  User.set({'flags.showTour': false});
       //}
