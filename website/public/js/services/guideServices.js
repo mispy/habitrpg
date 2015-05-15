@@ -156,8 +156,8 @@ function($rootScope, User, $timeout, $state) {
             (showCounter ? '<span style="float:right;">'+ (i+1 +' of '+ _.flatten(chapters[k]).length) +'</span>' : '')+ // counter
             '<div class="btn-group">' +
               '<button class="btn btn-sm btn-default" data-role="prev">&laquo; Previous</button>' +
-              (showFinish ? ('<button class="btn btn-sm btn-default" data-role="end" style="float:none;">' + (step.proceed ? step.proceed : "Finish Tour") + '</button>') :
-                ('<button class="btn btn-sm btn-default" data-role="next">' + (step.proceed ? step.proceed : "Next") + ' &raquo;</button>')) +
+              (showFinish ? ('<button class="btn btn-sm btn-primary" data-role="end" style="float:none;">' + (step.proceed ? step.proceed : "Finish Tour") + '</button>') :
+                ('<button class="btn btn-sm btn-primary" data-role="next">' + (step.proceed ? step.proceed : "Next") + ' &raquo;</button>')) +
               '<button class="btn btn-sm btn-default" data-role="pause-resume" data-pause-text="Pause" data-resume-text="Resume">Pause</button>' +
             '</div>' +
           '</div>' +
