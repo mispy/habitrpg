@@ -197,6 +197,7 @@ function($rootScope, User, $timeout, $state) {
     if (!updateFn) return; // only run after user has been wrapped
     watcher(); // deregister watcher
     if (window.env.IS_MOBILE) return; // Don't show tour immediately on mobile devices
+    openModal("welcome",{size:"lg"})
     goto('intro', 0); // kick off first step on first visit
 
     var alreadyShown = function(before, after) { return !(!before && after === true) };

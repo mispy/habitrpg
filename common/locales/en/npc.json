@@ -61,5 +61,12 @@
     "tourHabitsBrief": "<strong>Good & Bad Habits</strong><ul><li>Good Habits award Gold & Experience</li><li>Bad Habits make you lose Health</li></ul>",
     "tourHabitsProceed": "Makes sense!",
     "tourRewardsBrief": "<strong>Reward List</strong><ul><li>Spend your Gold here</li><li>Add your own Rewards</li></ul>",
-    "tourRewardsProceed": "Can't wait!"
+    "tourRewardsProceed": "Can't wait!",
+
+    "welcomeToHabit": "Welcome to HabitRPG!",
+    "welcome1": "Improve your life by playing a game!",
+    "welcome2": "Level up your avatar by doing tasks to earn XP (Experience) and Gold!",
+    "welcome3": "Keep your character alive by avoiding bad habits that drain HP (Health)!",
+    "welcome4": "Now Justin the Guide will teach you how to set up your tasks...",
+    "imReady": "I'm Ready!"
 }
