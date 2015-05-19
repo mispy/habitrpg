@@ -54,9 +54,9 @@
     "tourChallengesPage": "Joining a Challenge will add tasks to your account. Compete against other users to win gem prizes!",
     "tourMarketPage": "Starting at Level 4, eggs and hatching potions drop randomly when you complete tasks. They appear here - use them to hatch pets! You can also buy items from the Market.",
 
-    "tourToDosBrief": "<strong>To-Do List</strong><ul><li>Check off for Gold & Experience!</li><li>Never make you lose Health</li></ul>",
+    "tourToDosBrief": "<strong>To-Do List</strong><ul><li>Check off To-Dos for Gold & Experience!</li><li>To-Dos never make your avatar lose Health</li></ul>",
     "tourToDosProceed": "Okay!",
-    "tourDailiesBrief": "<strong>Daily Tasks</strong><ul><li>Repeat every day</li><li>Lose Health if you skip them</li></ul>",
+    "tourDailiesBrief": "<strong>Daily Tasks</strong><ul><li>Dailies repeat every day</li><li>You lose Health if you skip Dailies</li></ul>",
     "tourDailiesProceed": "I'll be careful!",
     "tourHabitsBrief": "<strong>Good & Bad Habits</strong><ul><li>Good Habits award Gold & Experience</li><li>Bad Habits make you lose Health</li></ul>",
     "tourHabitsProceed": "Makes sense!",

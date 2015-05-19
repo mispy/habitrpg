@@ -198,7 +198,7 @@ function($rootScope, User, $timeout, $state) {
     if (!updateFn) return; // only run after user has been wrapped
     watcher(); // deregister watcher
     if (window.env.IS_MOBILE) return; // Don't show tour immediately on mobile devices
-    if (!User.user.flags.welcomed) {
+    if (User.user.flags.welcomed == false) {
       $rootScope.openModal('welcome', {size: 'lg', backdrop: 'static', keyboard: false});
     }
 
