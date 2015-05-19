@@ -172,6 +172,7 @@ function($rootScope, User, $timeout, $state) {
 
   var goto = function(chapter, page, force) {
     //return; // TODO temporarily remove old tutorial system while experimenting with leslie's new gettup
+    if (chapter == 'intro') User.set({'flags.welcomed': true});
     var curr = User.user.flags.tour[chapter];
     if (page != curr+1 && !force) return;
     var updates = {};updates['flags.tour.'+chapter] = page;
@@ -197,14 +198,15 @@ function($rootScope, User, $timeout, $state) {
     if (!updateFn) return; // only run after user has been wrapped
     watcher(); // deregister watcher
     if (window.env.IS_MOBILE) return; // Don't show tour immediately on mobile devices
-    openModal("welcome",{size:"lg"})
-    goto('intro', 0); // kick off first step on first visit
+    if (!User.user.flags.welcomed) {
+      $rootScope.openModal('welcome', {size: 'lg', backdrop: 'static', keyboard: false});
+    }
 
     var alreadyShown = function(before, after) { return !(!before && after === true) };
     //$rootScope.$watch('user.flags.dropsEnabled', _.flow(alreadyShown, function(already) { //FIXME requires lodash@~3.2.0
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
       switch (toState.name) {
-        case 'options.profile.avatar':   return goto('intro', 5);
+        // case 'options.profile.avatar':   return goto('intro', 5);
         case 'options.profile.stats':    return goto('stats', 0);
         case 'options.social.tavern':    return goto('tavern', 0);
         case 'options.social.party':     return goto('party', 0);
@@ -212,7 +214,7 @@ function($rootScope, User, $timeout, $state) {
         case 'options.social.challenges':return goto('challenges', 0);
         case 'options.inventory.drops':  return goto('market', 0);
       }
-    })
+    });
     $rootScope.$watch('user.flags.dropsEnabled', function(after, before) {
       if (alreadyShown(before,after)) return;
       var eggs = User.user.items.eggs || {};

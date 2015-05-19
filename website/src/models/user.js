@@ -149,7 +149,8 @@ var UserSchema = new Schema({
     // Needed to track the tip to send inside the email
     weeklyRecapEmailsPhase: {type: Number, 'default': 0},
     communityGuidelinesAccepted: {type: Boolean, 'default': false},
-    cronCount: {type:Number, 'default':0}
+    cronCount: {type:Number, 'default':0},
+    welcomed: {type: Boolean, 'default': false}
   },
   history: {
     exp: Array, // [{date: Date, value: Number}], // big peformance issues if these are defined

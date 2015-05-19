@@ -63,10 +63,9 @@
     "tourRewardsBrief": "<strong>Reward List</strong><ul><li>Spend your Gold here</li><li>Add your own Rewards</li></ul>",
     "tourRewardsProceed": "Can't wait!",
 
-    "welcomeToHabit": "Welcome to HabitRPG!",
-    "welcome1": "Improve your life by playing a game!",
-    "welcome2": "Level up your avatar by doing tasks to earn XP (Experience) and Gold!",
-    "welcome3": "Keep your character alive by avoiding bad habits that drain HP (Health)!",
-    "welcome4": "Now Justin the Guide will teach you how to set up your tasks...",
+    "welcomeToHabit": "Welcome to HabitRPG, a game to improve your life!",
+    "welcome1": "Level up your avatar by doing tasks to earn XP (Experience) and Gold!",
+    "welcome2": "Keep your character alive by avoiding bad habits that drain HP (Health)!",
+    "welcome3": "Now Justin the Guide will teach you how to set up your tasks...",
     "imReady": "I'm Ready!"
 }
